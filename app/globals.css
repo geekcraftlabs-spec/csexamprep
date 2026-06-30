@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary-blue: #2563EB;
+  --purple-glow: #8B5CF6;
+  --pink-accent: #F9A8D4;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Glow Effects */
+.glow-blue {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: rgba(37, 99, 235, 0.15);
+  filter: blur(180px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glow-purple {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(139, 92, 246, 0.15);
+  filter: blur(180px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glow-pink {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(249, 168, 212, 0.1);
+  filter: blur(180px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #2563EB, #8B5CF6, #F9A8D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.8);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Code / Pseudocode Styling */
+.pseudocode {
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Tag */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tag-blue {
+  background: rgba(37, 99, 235, 0.2);
+  color: #60A5FA;
+}
+
+.tag-purple {
+  background: rgba(139, 92, 246, 0.2);
+  color: #A78BFA;
+}
+
+.tag-pink {
+  background: rgba(249, 168, 212, 0.2);
+  color: #F9A8D4;
+}
+
+.tag-green {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34D399;
+}
