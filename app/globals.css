@@ -121,7 +121,7 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-/* Tag */
+/* Tags */
 .tag {
   display: inline-block;
   padding: 0.2rem 0.8rem;
@@ -153,19 +153,11 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
-   MINIMAL OVERFLOW FIX – Only for text content
+   OVERFLOW FIXES
    ============================================================ */
 
-/* Wrap text in question cards and descriptions */
-.question-text,
-.model-answer,
-.explanation,
-.prose-text,
-p.text-zinc-300,
-p.text-zinc-400,
-p.text-white,
-div.text-zinc-300,
-div.text-zinc-400 {
+/* Wrap all text */
+p, h1, h2, h3, h4, h5, h6, span, div {
   overflow-wrap: break-word !important;
   word-wrap: break-word !important;
   word-break: break-word !important;
