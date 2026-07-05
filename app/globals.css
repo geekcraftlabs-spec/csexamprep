@@ -8,69 +8,11 @@
   --pink-accent: #F9A8D4;
 }
 
-/* ============================================================
-   OVERFLOW FIX – Prevent content from breaking viewport
-   ============================================================ */
-
-/* Global overflow protection */
-* {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-html,
 body {
-  overflow-x: hidden;
-  width: 100%;
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
-
-/* Force all text to wrap */
-.prose {
-  max-width: 100% !important;
-  overflow-wrap: break-word !important;
-  word-wrap: break-word !important;
-  word-break: break-word !important;
-}
-
-/* Code blocks – allow horizontal scroll */
-.prose pre,
-.prose code {
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
-  overflow-x: auto !important;
-  max-width: 100% !important;
-}
-
-/* Tables – scroll horizontally on mobile */
-.prose table {
-  display: block !important;
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  white-space: nowrap !important;
-}
-
-/* Images – never overflow */
-img,
-video,
-iframe {
-  max-width: 100% !important;
-  height: auto !important;
-}
-
-/* Container max width */
-.container,
-.max-w-7xl {
-  max-width: 100% !important;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-
-/* ============================================================
-   GEEK CRAFT LABS STYLING
-   ============================================================ */
 
 /* Glassmorphism Card */
 .glass-card {
@@ -179,7 +121,7 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-/* Tags */
+/* Tag */
 .tag {
   display: inline-block;
   padding: 0.2rem 0.8rem;
@@ -208,4 +150,53 @@ h1, h2, h3, h4 {
 .tag-green {
   background: rgba(52, 211, 153, 0.2);
   color: #34D399;
+}
+
+/* ============================================================
+   MINIMAL OVERFLOW FIX – Only for text content
+   ============================================================ */
+
+/* Wrap text in question cards and descriptions */
+.question-text,
+.model-answer,
+.explanation,
+.prose-text,
+p.text-zinc-300,
+p.text-zinc-400,
+p.text-white,
+div.text-zinc-300,
+div.text-zinc-400 {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  max-width: 100% !important;
+}
+
+/* Allow code to scroll */
+.pseudocode,
+pre,
+code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+/* Prevent body from scrolling horizontally */
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Containers */
+.max-w-7xl,
+.max-w-6xl,
+.max-w-5xl,
+.max-w-4xl,
+.max-w-3xl,
+.container {
+  max-width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
