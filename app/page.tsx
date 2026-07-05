@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { questions } from "./data/questions";
 import QuestionCard from "./components/QuestionCard";
 import TopicFilter from "./components/TopicFilter";
@@ -10,6 +10,17 @@ import { motion } from "framer-motion";
 export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const topics = useMemo(() => {
     const topicSet = new Set(questions.map((q) => q.topic));
@@ -73,18 +84,19 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Questions Section */}
+      {/* Questions Section - Optimized for mobile */}
       <section className="relative z-10 max-w-7xl mx-auto px-4 pb-12 w-full">
         <div className="space-y-4">
           {filteredQuestions.map((q, index) => (
-            <motion.div
+            // On mobile: no animation, instant render
+            // On desktop: subtle animation
+            <div
               key={q.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.5) }}
+              className={!isMobile ? "animate-fade-in-up" : ""}
+              style={!isMobile ? { animationDelay: `${Math.min(index * 0.05, 0.5)}s` } : {}}
             >
               <QuestionCard question={q} />
-            </motion.div>
+            </div>
           ))}
           {filteredQuestions.length === 0 && (
             <div className="text-center py-8">
